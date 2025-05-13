@@ -10,22 +10,9 @@
 		2B328AE82DD3672900BFF344 /* Oxfordgames Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxfordgames Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2B328AFA2DD3674A00BFF344 /* Exceptions for "Oxfordgames Online" folder in "Oxfordgames Online" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Oxfordgames-Online-Info.plist",
-			);
-			target = 2B328AE72DD3672900BFF344 /* Oxfordgames Online */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2B328AEA2DD3672900BFF344 /* Oxfordgames Online */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				2B328AFA2DD3674A00BFF344 /* Exceptions for "Oxfordgames Online" folder in "Oxfordgames Online" target */,
-			);
 			path = "Oxfordgames Online";
 			sourceTree = "<group>";
 		};
