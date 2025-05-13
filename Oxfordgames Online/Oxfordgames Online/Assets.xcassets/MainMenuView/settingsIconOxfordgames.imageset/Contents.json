@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "settingsIconOxfordgames.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
