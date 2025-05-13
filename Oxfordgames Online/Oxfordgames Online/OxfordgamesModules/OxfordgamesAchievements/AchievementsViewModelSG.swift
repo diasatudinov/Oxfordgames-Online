@@ -1,12 +1,21 @@
+//
+//  AchievementsViewModelSG.swift
+//  Oxfordgames Online
+//
+//  Created by Dias Atudinov on 13.05.2025.
+//
+
+
 import SwiftUI
 
 class AchievementsViewModelSG: ObservableObject {
     
     @Published var achievements: [AchievementSG] = [
-        AchievementSG(image: "achi1IconSG", achievedCount: 0, achievedMaxCount: 1, isAchieved: false),
-        AchievementSG(image: "achi2IconSG", achievedCount: 0, achievedMaxCount: 10, isAchieved: false),
-        AchievementSG(image: "achi3IconSG", achievedCount: 0, achievedMaxCount: 1, isAchieved: false),
-        AchievementSG(image: "achi4IconSG", achievedCount: 0, achievedMaxCount: 5, isAchieved: false)
+        AchievementSG(image: "achi1IconOxfordgames", title: "achiTitle1", subtitle: "achiSubtitle1", isAchieved: false),
+        AchievementSG(image: "achi2IconOxfordgames", title: "achiTitle2", subtitle: "achiSubtitle2", isAchieved: false),
+        AchievementSG(image: "achi3IconOxfordgames", title: "achiTitle3", subtitle: "achiSubtitle3", isAchieved: false),
+        AchievementSG(image: "achi4IconOxfordgames", title: "achiTitle4", subtitle: "achiSubtitle4", isAchieved: false),
+        AchievementSG(image: "achi5IconOxfordgames", title: "achiTitle5", subtitle: "achiSubtitle5", isAchieved: false),
 
     ] {
         didSet {
@@ -29,19 +38,7 @@ class AchievementsViewModelSG: ObservableObject {
         achievements[index].isAchieved.toggle()
         
     }
-    
-    func achieveCheck(_ achive: AchievementSG) {
-        guard let index = achievements.firstIndex(where: { $0.image == achive.image })
-        else {
-            return
-        }
-        
-        if achievements[index].achievedCount < achievements[index].achievedMaxCount {
-            achievements[index].achievedCount += 1
-        } else {
-            achievements[index].isAchieved = true
-        }
-    }
+
     
     func saveAchievementsItem() {
         if let encodedData = try? JSONEncoder().encode(achievements) {
@@ -63,7 +60,7 @@ class AchievementsViewModelSG: ObservableObject {
 struct AchievementSG: Codable, Hashable, Identifiable {
     var id = UUID()
     var image: String
-    var achievedCount: Int
-    var achievedMaxCount: Int
+    var title: String
+    var subtitle: String
     var isAchieved: Bool
 }
