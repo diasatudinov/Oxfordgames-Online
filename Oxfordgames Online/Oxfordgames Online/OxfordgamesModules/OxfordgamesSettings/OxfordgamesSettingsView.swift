@@ -70,7 +70,7 @@ struct OxfordgamesSettingsView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                        
