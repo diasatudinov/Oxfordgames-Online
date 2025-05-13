@@ -8,25 +8,22 @@ enum StoreSection: Codable, Hashable {
 class StoreViewModelSG: ObservableObject {
     @Published var shopTeamItems: [Item] = [
         
-        Item(name: "bg1", image: "gameBg1SG", icon: "backIcon1SG", section: .backgrounds, price: 100),
-        Item(name: "bg2", image: "gameBg2SG", icon: "backIcon2SG", section: .backgrounds, price: 100),
-        Item(name: "bg3", image: "gameBg3SG", icon: "backIcon3SG", section: .backgrounds, price: 100),
-        Item(name: "bg4", image: "gameBg4SG", icon: "backIcon4SG", section: .backgrounds, price: 100),
-        Item(name: "bg5", image: "gameBg5SG", icon: "backIcon5SG", section: .backgrounds, price: 100),
+        Item(name: "bgName1Oxfordgames", image: "gameBg1SG", icon: "backIcon1Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName2Oxfordgames", image: "gameBg2SG", icon: "backIcon2Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName3Oxfordgames", image: "gameBg3SG", icon: "backIcon3Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName4Oxfordgames", image: "gameBg4SG", icon: "backIcon4Oxfordgames", section: .backgrounds, price: 100),
         
         
-        Item(name: "skin1", image: "imageSkin1SG", icon: "iconSkin1SG", section: .skin, price: 100),
-        Item(name: "skin2", image: "imageSkin2SG", icon: "iconSkin2SG", section: .skin, price: 100),
-        Item(name: "skin3", image: "imageSkin3SG", icon: "iconSkin3SG", section: .skin, price: 100),
-        Item(name: "skin4", image: "imageSkin4SG", icon: "iconSkin4SG", section: .skin, price: 100),
-        Item(name: "skin5", image: "imageSkin5SG", icon: "iconSkin5SG", section: .skin, price: 100),
-        Item(name: "skin6", image: "imageSkin6SG", icon: "iconSkin6SG", section: .skin, price: 100),
+        Item(name: "itemName1", image: "imageSkin1SG", icon: "itemIcon1", section: .skin, price: 100),
+        Item(name: "itemName2", image: "imageSkin2SG", icon: "itemIcon2", section: .skin, price: 100),
+        Item(name: "itemName3", image: "imageSkin3SG", icon: "itemIcon3", section: .skin, price: 100),
+        Item(name: "itemName4", image: "imageSkin4SG", icon: "itemIcon4", section: .skin, price: 100),
          
     ]
     
     @Published var boughtItems: [Item] = [
-        Item(name: "bg1", image: "gameBg1SG", icon: "backIcon1SG", section: .backgrounds, price: 100),
-        Item(name: "skin1", image: "imageSkin1SG", icon: "iconSkin1SG", section: .skin, price: 100),
+        Item(name: "bgName1Oxfordgames", image: "gameBg1SG", icon: "backIcon1Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "itemName1", image: "imageSkin1SG", icon: "itemIcon1", section: .skin, price: 100),
     ] {
         didSet {
             saveBoughtItem()
@@ -51,9 +48,9 @@ class StoreViewModelSG: ObservableObject {
         loadBoughtItem()
     }
     
-    private let userDefaultsBgKey = "BgKeySG"
-    private let userDefaultsPersonKey = "BirdKeySG"
-    private let userDefaultsBoughtKey = "boughtItemsSG"
+    private let userDefaultsBgKey = "bgKeyOxfordgames"
+    private let userDefaultsPersonKey = "skinKeyOxfordgames"
+    private let userDefaultsBoughtKey = "boughtItemsOxfordgames"
 
     
     func saveCurrentBg() {
@@ -87,7 +84,7 @@ class StoreViewModelSG: ObservableObject {
            let loadedItem = try? JSONDecoder().decode(Item.self, from: savedData) {
             currentPersonItem = loadedItem
         } else {
-            currentPersonItem = shopTeamItems[8]
+            currentPersonItem = shopTeamItems[4]
             print("No saved data found")
         }
     }
