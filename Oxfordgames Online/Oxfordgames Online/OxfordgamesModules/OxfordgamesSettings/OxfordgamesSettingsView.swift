@@ -1,12 +1,4 @@
-//
-//  OxfordgamesSettingsView.swift
-//  Oxfordgames Online
-//
-//  Created by Dias Atudinov on 13.05.2025.
-//
-
 import SwiftUI
-import StoreKit
 
 struct OxfordgamesSettingsView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -89,11 +81,6 @@ struct OxfordgamesSettingsView: View {
         )
     }
     
-    func rateUs() {
-        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-            SKStoreReviewController.requestReview(in: scene)
-        }
-    }
 }
 
 #Preview {
