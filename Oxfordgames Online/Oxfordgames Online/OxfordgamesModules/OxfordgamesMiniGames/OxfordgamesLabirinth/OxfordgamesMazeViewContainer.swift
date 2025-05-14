@@ -2,23 +2,17 @@ import SwiftUI
 import SpriteKit
 
 
-struct SpriteViewContainer: UIViewRepresentable {
-    @StateObject var user = SGUser.shared
-    var scene: GameScene
+struct OxfordgamesMazeViewContainer: UIViewRepresentable {
+    @StateObject var user = OxfordgamesUser.shared
+    var scene: OxfordgamesMazeScene
     @Binding var isWin: Bool
-    @Binding var score: Int
-    var level: Int
     func makeUIView(context: Context) -> SKView {
         let skView = SKView(frame: UIScreen.main.bounds)
         skView.backgroundColor = .clear
         scene.scaleMode = .resizeFill
-        scene.winHandle = {
+        scene.isWinHandler = {
             isWin = true
-            user.updateUserMoney(for: 100)
-        }
-        scene.levelIndex = level
-        scene.scoreHandle = {
-            score += 100
+            user.updateUserMoney(for: 40)
         }
         skView.presentScene(scene)
         

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Card: Identifiable {
+struct OxfordgamesCard: Identifiable {
     let id = UUID()
     let type: String
     var isFaceUp = false

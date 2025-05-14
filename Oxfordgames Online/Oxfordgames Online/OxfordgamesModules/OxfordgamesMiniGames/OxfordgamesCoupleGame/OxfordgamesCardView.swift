@@ -1,15 +1,7 @@
-//
-//  CardView.swift
-//  Oxfordgames Online
-//
-//  Created by Dias Atudinov on 14.05.2025.
-//
-
-
 import SwiftUI
 
-struct CardView: View {
-    let card: Card
+struct OxfordgamesCardView: View {
+    let card: OxfordgamesCard
 
     var body: some View {
         ZStack {
@@ -17,17 +9,17 @@ struct CardView: View {
                 Image(card.type)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 200:120)
             } else {
                 Image(.cardBackOxfordgames)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 200:120)
             }
         }
     }
 }
 
 #Preview {
-    CardView(card: Card(type: "cardFace1SG"))
+    OxfordgamesCardView(card: OxfordgamesCard(type: "cardFace1SG"))
 }

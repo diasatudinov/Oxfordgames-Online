@@ -1,7 +1,7 @@
 import SwiftUI
 import SpriteKit
 
-struct GameView: View {
+struct OxfordgamesGameView: View {
     @Environment(\.presentationMode) var presentationMode
    
     @State var gameScene: GameScene = {
@@ -20,8 +20,8 @@ struct GameView: View {
             SpriteViewContainer(scene: gameScene, isWin: $isWin, score: $score, level: level)
                 .ignoresSafeArea()
             
-            VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 200:100) {
-                HStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 200:100) {
+            VStack(spacing: OxfordgamesDeviceManager.shared.deviceType == .pad ? 200:100) {
+                HStack(spacing: OxfordgamesDeviceManager.shared.deviceType == .pad ? 200:100) {
                     ZStack {
                         Image(.rectangleMainGameOxfordgames)
                             .resizable()
@@ -34,7 +34,7 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280:140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 280:140,height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:200)
                     
                     ZStack {
                         Image(.rectangleMainGameOxfordgames)
@@ -48,10 +48,10 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280:140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 280:140,height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:200)
                 }
                 
-                HStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 200:100) {
+                HStack(spacing: OxfordgamesDeviceManager.shared.deviceType == .pad ? 200:100) {
                     ZStack {
                         Image(.rectangleMainGameOxfordgames)
                             .resizable()
@@ -64,7 +64,7 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280: 140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 280: 140,height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:200)
                     
                     ZStack {
                         Image(.rectangleMainGameOxfordgames)
@@ -78,7 +78,7 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280:140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 280:140,height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:200)
                 }
             }
             
@@ -92,7 +92,7 @@ struct GameView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         
                         Button {
@@ -102,11 +102,11 @@ struct GameView: View {
                             Image(.restartBtnOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                         
-                        CoinBgSG()
+                        OxfordgamesCoinBg()
                        
                     }.padding([.horizontal, .top])
                 }
@@ -131,7 +131,7 @@ struct GameView: View {
                             Image(.retryBtnOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
                         }
                         
                         Button {
@@ -140,11 +140,11 @@ struct GameView: View {
                             Image(.menuBtnOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
                         }
                         
-                    }.padding(.bottom, SGDeviceManager.shared.deviceType == .pad ? 100 : 50)
-                }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
+                    }.padding(.bottom, OxfordgamesDeviceManager.shared.deviceType == .pad ? 100 : 50)
+                }.frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:350)
             }
             
         }.background(
@@ -161,5 +161,5 @@ struct GameView: View {
 }
 
 #Preview {
-    GameView(shopVM: StoreViewModelSG(), level: 0)
+    OxfordgamesGameView(shopVM: StoreViewModelSG(), level: 0)
 }

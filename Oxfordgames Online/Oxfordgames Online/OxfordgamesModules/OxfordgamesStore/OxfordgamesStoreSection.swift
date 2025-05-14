@@ -1,11 +1,11 @@
 import SwiftUI
 
-enum StoreSection: Codable, Hashable {
+enum OxfordgamesStoreSection: Codable, Hashable {
     case backgrounds
     case skin
 }
 
-class StoreViewModelSG: ObservableObject {
+class OxfordgamesStoreViewModel: ObservableObject {
     @Published var shopTeamItems: [Item] = [
         
         Item(name: "bgName1Oxfordgames", image: "gameBg1Oxfordgames", icon: "backIcon1Oxfordgames", section: .backgrounds, price: 100),
@@ -112,6 +112,6 @@ struct Item: Codable, Hashable {
     var name: String
     var image: String
     var icon: String
-    var section: StoreSection
+    var section: OxfordgamesStoreSection
     var price: Int
 }

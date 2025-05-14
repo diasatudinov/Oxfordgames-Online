@@ -1,14 +1,6 @@
-//
-//  AchievementsViewModelSG.swift
-//  Oxfordgames Online
-//
-//  Created by Dias Atudinov on 13.05.2025.
-//
-
-
 import SwiftUI
 
-class AchievementsViewModelSG: ObservableObject {
+class OxfordgamesAchievementsViewModel: ObservableObject {
     
     @Published var achievements: [AchievementSG] = [
         AchievementSG(image: "achi1IconOxfordgames", title: "achiTitle1", subtitle: "achiSubtitle1", isAchieved: false),

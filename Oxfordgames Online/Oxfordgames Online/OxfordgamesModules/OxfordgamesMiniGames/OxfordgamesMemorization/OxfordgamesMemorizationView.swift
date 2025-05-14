@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct MemorizationViewSG: View {
-    @StateObject var user = SGUser.shared
+struct OxfordgamesMemorizationView: View {
+    @StateObject var user = OxfordgamesUser.shared
     @Environment(\.presentationMode) var presentationMode
     
     let cardImages = ["card1Oxfordgames", "card2Oxfordgames", "card3Oxfordgames", "card4Oxfordgames", "card5Oxfordgames", "card6Oxfordgames", "card7Oxfordgames", "card8Oxfordgames"]
@@ -33,7 +33,7 @@ struct MemorizationViewSG: View {
                                     Image(.backIconOxfordgames)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                 }
                                 
                                 Button {
@@ -43,12 +43,12 @@ struct MemorizationViewSG: View {
                                     Image(.restartBtnOxfordgames)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                 }
                             }
                             Spacer()
                             
-                            CoinBgSG()
+                            OxfordgamesCoinBg()
                         }.padding([.horizontal, .top])
                     }
                 }
@@ -59,7 +59,7 @@ struct MemorizationViewSG: View {
                     // Full-screen reveal of each card in sequence
                     if let idx = currentStep {
                         MemorizationCardView(imageName: cardImages[idx])
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 600:300)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 600:300)
                             .padding()
                             .transition(.opacity)
                     }
@@ -99,7 +99,7 @@ struct MemorizationViewSG: View {
                                 Image(.retryBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
                             
                             Button {
@@ -108,11 +108,11 @@ struct MemorizationViewSG: View {
                                 Image(.menuBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
                             
-                        }.padding(.bottom, SGDeviceManager.shared.deviceType == .pad ? 100 : 50)
-                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
+                        }.padding(.bottom, OxfordgamesDeviceManager.shared.deviceType == .pad ? 100 : 50)
+                    }.frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:350)
                 } else {
                     ZStack {
                         Image(.loseBgOxfordgames)
@@ -128,7 +128,7 @@ struct MemorizationViewSG: View {
                                 Image(.retryBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
                             
                             Button {
@@ -137,10 +137,10 @@ struct MemorizationViewSG: View {
                                 Image(.menuBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
                         }
-                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
+                    }.frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:350)
                 }
                 
             }
@@ -222,5 +222,5 @@ struct MemorizationCardView: View {
 }
 
 #Preview {
-    MemorizationViewSG()
+    OxfordgamesMemorizationView()
 }

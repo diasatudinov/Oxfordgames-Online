@@ -1,5 +1,5 @@
 import SwiftUI
 
-class SettingsViewModelSG: ObservableObject {
+class OxfordgamesSettingsViewModel: ObservableObject {
     @AppStorage("soundEnabled") var soundEnabled: Bool = true
 }

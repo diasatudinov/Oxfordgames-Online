@@ -1,15 +1,7 @@
-//
-//  SaracenMazeScene.swift
-//  Oxfordgames Online
-//
-//  Created by Dias Atudinov on 14.05.2025.
-//
-
-
 import SpriteKit
 import UIKit
 
-class SaracenMazeScene: SKScene {
+class OxfordgamesMazeScene: SKScene {
 
     private var maze: [[Int]] = []
     private let rows = 15

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ChooseLevelView: View {
+struct OxfordgamesChooseLevelView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var shopVM: StoreViewModelSG
 
@@ -18,17 +18,17 @@ struct ChooseLevelView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
-                        CoinBgSG()
+                        OxfordgamesCoinBg()
                     }.padding([.horizontal, .top])
                 }
                 
                 Image(.levelSelectTextOxfordgames)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                 
                 ZStack {
                     Image(.zikzakOxfordgames)
@@ -41,10 +41,10 @@ struct ChooseLevelView: View {
                                 Image(.levelNumBgOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:65)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:65)
                                 
                                 Text("\(index + 1)")
-                                    .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 80:40, weight: .bold))
+                                    .font(.system(size: OxfordgamesDeviceManager.shared.deviceType == .pad ? 80:40, weight: .bold))
                                     .foregroundStyle(.white)
                             }.offset(x: putXLevels(for: index))
                                 .onTapGesture {
@@ -101,5 +101,5 @@ struct ChooseLevelView: View {
 }
 
 #Preview {
-    ChooseLevelView(shopVM: StoreViewModelSG())
+    OxfordgamesChooseLevelView(shopVM: StoreViewModelSG())
 }

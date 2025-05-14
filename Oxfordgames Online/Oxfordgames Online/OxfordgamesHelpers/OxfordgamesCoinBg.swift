@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CoinBgSG: View {
+struct OxfordgamesCoinBg: View {
     @StateObject var user = SGUser.shared
     var body: some View {
         ZStack {
@@ -21,5 +21,5 @@ struct CoinBgSG: View {
 }
 
 #Preview {
-    CoinBgSG()
+    OxfordgamesCoinBg()
 }
