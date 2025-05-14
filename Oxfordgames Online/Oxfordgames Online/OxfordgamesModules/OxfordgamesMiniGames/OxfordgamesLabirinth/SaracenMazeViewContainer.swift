@@ -1,9 +1,17 @@
+//
+//  SaracenMazeViewContainer.swift
+//  Oxfordgames Online
+//
+//  Created by Dias Atudinov on 14.05.2025.
+//
+
+
 import SwiftUI
 import SpriteKit
 
 
 struct SaracenMazeViewContainer: UIViewRepresentable {
-    @StateObject var user = UserSaracen.shared
+    @StateObject var user = SGUser.shared
     var scene: SaracenMazeScene
     @Binding var isWin: Bool
     func makeUIView(context: Context) -> SKView {
