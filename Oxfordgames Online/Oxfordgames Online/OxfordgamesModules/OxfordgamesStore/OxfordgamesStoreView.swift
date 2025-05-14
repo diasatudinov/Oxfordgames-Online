@@ -2,9 +2,9 @@ import SwiftUI
 
 struct OxfordgamesStoreView: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var user = SGUser.shared
-    @State var section: StoreSection = .skin
-    @ObservedObject var viewModel: StoreViewModelSG
+    @StateObject var user = OxfordgamesUser.shared
+    @State var section: OxfordgamesStoreSection = .skin
+    @ObservedObject var viewModel: OxfordgamesStoreViewModel
     
     @State var skinIndex: Int = 0
     
@@ -22,11 +22,11 @@ struct OxfordgamesStoreView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                        
-                        CoinBgSG()
+                        OxfordgamesCoinBg()
                     }.padding([.horizontal, .top])
                 }
                 
@@ -34,7 +34,7 @@ struct OxfordgamesStoreView: View {
                     Image(.skinsTextOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 80:41)
+                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 80:41)
                         .offset(y: section == .skin ? 20:0)
                         .onTapGesture {
                             withAnimation {
@@ -44,7 +44,7 @@ struct OxfordgamesStoreView: View {
                     Image(.locationsTextOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 80:41)
+                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 80:41)
                         .offset(y: section == .backgrounds ? 20:0)
                         .onTapGesture {
                             withAnimation {
@@ -64,7 +64,7 @@ struct OxfordgamesStoreView: View {
                                 Image(.backIconOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                 
                                 
                             }
@@ -76,11 +76,11 @@ struct OxfordgamesStoreView: View {
                                 Image(.backIconOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                     .scaleEffect(x: -1)
                                 
                             }
-                        }.frame(width: SGDeviceManager.shared.deviceType == .pad ? 700:350)
+                        }.frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:350)
                     }
                 } else {
                     
@@ -94,7 +94,7 @@ struct OxfordgamesStoreView: View {
                                 Image(.backIconOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                 
                                 
                             }
@@ -106,11 +106,11 @@ struct OxfordgamesStoreView: View {
                                 Image(.backIconOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                     .scaleEffect(x: -1)
                                 
                             }
-                        }.frame(width: SGDeviceManager.shared.deviceType == .pad ? 700:350)
+                        }.frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:350)
                     }
                 }
                 
@@ -127,20 +127,20 @@ struct OxfordgamesStoreView: View {
         )
     }
     
-    @ViewBuilder func storeItem(item: Item) -> some View {
+    @ViewBuilder func storeItem(item: OxfordgamesItem) -> some View {
         
             VStack {
                 
                 Image(item.name)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                 
                 
                 Image(item.icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 660:330)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 660:330)
                 
                 
                 Button {
@@ -177,12 +177,12 @@ struct OxfordgamesStoreView: View {
                                     Image(.selectTextOxfordgames)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                                     if let currentItem = viewModel.currentPersonItem, currentItem.name == item.name {
                                         Image(.selectedTextOxfordgames)
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                                     }
                                     
                                 }
@@ -193,7 +193,7 @@ struct OxfordgamesStoreView: View {
                             Image(user.money >= item.price ? .priceBtnOxfordgames: .priceBtnOffOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                             
                             
                             
@@ -205,12 +205,12 @@ struct OxfordgamesStoreView: View {
                                     Image(.selectTextOxfordgames)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                                     if let currentItem = viewModel.currentBgItem, currentItem.name == item.name {
                                         Image(.selectedTextOxfordgames)
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                                     }
                                     
                                 }
@@ -221,7 +221,7 @@ struct OxfordgamesStoreView: View {
                                     Image(user.money >= item.price ? .priceBtnOxfordgames: .priceBtnOffOxfordgames)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                                     
                                     
                                 }
@@ -262,5 +262,5 @@ struct OxfordgamesStoreView: View {
 }
 
 #Preview {
-    OxfordgamesStoreView(viewModel: StoreViewModelSG())
+    OxfordgamesStoreView(viewModel: OxfordgamesStoreViewModel())
 }

@@ -52,7 +52,7 @@ struct OxfordgamesWV: UIViewRepresentable {
     }
 }
 
-struct WVWrap: View {
+struct OxfordgamesWVWrap: View {
     @State private var nAllow = true
     var urlString = ""
     @AppStorage("firstOpen") var firstOpen = true
