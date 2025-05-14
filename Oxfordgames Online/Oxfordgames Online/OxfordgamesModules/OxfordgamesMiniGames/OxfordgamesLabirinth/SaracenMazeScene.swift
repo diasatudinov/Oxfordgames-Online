@@ -1,3 +1,11 @@
+//
+//  SaracenMazeScene.swift
+//  Oxfordgames Online
+//
+//  Created by Dias Atudinov on 14.05.2025.
+//
+
+
 import SpriteKit
 import UIKit
 
@@ -74,7 +82,7 @@ class SaracenMazeScene: SKScene {
             for c in 0..<gridCols where maze[r][c] == 1 {
                 let x = mazeOrigin.x + CGFloat(c) * tileSize.width + tileSize.width/2
                 let y = mazeOrigin.y + CGFloat(gridRows - r - 1) * tileSize.height + tileSize.height/2
-                let wall = SKSpriteNode(color: .main, size: wallSize)
+                let wall = SKSpriteNode(color: .white, size: wallSize)
                 wall.position = CGPoint(x: x, y: y)
                 addChild(wall)
             }
@@ -89,7 +97,7 @@ class SaracenMazeScene: SKScene {
         let height = CGFloat(rows) * tileSize.height
 
         let bgSize = CGSize(width: width, height: height)
-        let bgNode = SKSpriteNode(color: .mazeBg, size: bgSize)
+        let bgNode = SKSpriteNode(color: .bgGray, size: bgSize)
 
         bgNode.position = CGPoint(
             x: mazeOrigin.x + width / 2,
@@ -103,7 +111,7 @@ class SaracenMazeScene: SKScene {
 
         let startRow = 1, startCol = 1
         let pos = positionForCell(row: startRow, col: startCol)
-        let texture = SKTexture(imageNamed: "crystalIconSaracen")
+        let texture = SKTexture(imageNamed: "guestImageOxfordgames")
         player = SKSpriteNode(texture: texture, size: tileSize)
         player.position = pos
         addChild(player)
@@ -116,7 +124,7 @@ class SaracenMazeScene: SKScene {
         for r in 0..<gridRows {
             for c in 0..<gridCols where maze[r][c] == 2 {
                 let pos = positionForCell(row: r, col: c)
-                let texture = SKTexture(imageNamed: "heartIconSaracen")
+                let texture = SKTexture(imageNamed: "exitImageOxfordgames")
                 exitNode = SKSpriteNode(texture: texture, size: tileSize)
                 exitNode.position = pos
                 addChild(exitNode)
