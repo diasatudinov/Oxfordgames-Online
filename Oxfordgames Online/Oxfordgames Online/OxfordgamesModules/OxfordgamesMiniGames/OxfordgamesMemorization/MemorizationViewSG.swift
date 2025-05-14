@@ -4,11 +4,9 @@ struct MemorizationViewSG: View {
     @StateObject var user = SGUser.shared
     @Environment(\.presentationMode) var presentationMode
     
-    // Names of the images in your Assets catalog
-    let cardImages = ["card1SG", "card2SG", "card3SG", "card4SG", "card5SG", "card6SG", "card7SG", "card8SG"]
+    let cardImages = ["card1Oxfordgames", "card2Oxfordgames", "card3Oxfordgames", "card4Oxfordgames", "card5Oxfordgames", "card6Oxfordgames", "card7Oxfordgames", "card8Oxfordgames"]
     let sequenceLength = 3
     
-    // Game state
     @State private var sequence: [Int] = []
     @State private var currentStep: Int? = nil
     @State private var gamePhase: GamePhase = .showing
@@ -16,9 +14,9 @@ struct MemorizationViewSG: View {
     @State private var feedback: String? = nil
     
     enum GamePhase {
-        case showing      // Showing sequence one by one full-screen
-        case userTurn     // User repeats sequence
-        case finished     // Game over
+        case showing
+        case userTurn
+        case finished
     }
     
     var body: some View {
@@ -27,22 +25,31 @@ struct MemorizationViewSG: View {
                 HStack {
                     VStack {
                         HStack(alignment: .top) {
-                            Button {
-                                presentationMode.wrappedValue.dismiss()
+                            HStack {
+                                Button {
+                                    presentationMode.wrappedValue.dismiss()
+                                    
+                                } label: {
+                                    Image(.backIconOxfordgames)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                }
                                 
-                            } label: {
-                                Image(.homeIconSG)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                Button {
+                                    startGame()
+                                    
+                                } label: {
+                                    Image(.restartBtnOxfordgames)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                }
                             }
                             Spacer()
+                            
+                            CoinBgSG()
                         }.padding([.horizontal, .top])
-                        
-                        Image(.memorizationTextSG)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
                     }
                 }
                 
@@ -78,51 +85,69 @@ struct MemorizationViewSG: View {
                 
                 if userInputIndex >= sequenceLength {
                     ZStack {
-                        Image(.mazeViewBg)
+                        Image(.winBgOxfordgames)
                             .resizable()
-                        VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                            Image(.winTextSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
+                            .scaledToFit()
+                        
+                        VStack {
+                            
+                            Spacer()
                             
                             Button {
                                 startGame()
                             } label: {
-                                Image(.nextButtonSG)
+                                Image(.retryBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
-                        }
-                    }
+                            
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Image(.menuBtnOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                            }
+                            
+                        }.padding(.bottom, SGDeviceManager.shared.deviceType == .pad ? 100 : 50)
+                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
                 } else {
                     ZStack {
-                        Image(.mazeViewBg)
+                        Image(.loseBgOxfordgames)
                             .resizable()
-                        VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                            Image(.loseTextSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 360:180)
+                            .scaledToFit()
+                        
+                        VStack {
+                            
                             
                             Button {
                                 startGame()
                             } label: {
-                                Image(.tryAgainIconSG)
+                                Image(.retryBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                            }
+                            
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Image(.menuBtnOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
                         }
-                    }
+                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
                 }
                 
             }
         }
         .background(
             ZStack {
-                Image(.mazeViewBg)
+                Image(.appBgOxfordgames)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .scaledToFill()
@@ -174,7 +199,7 @@ struct MemorizationViewSG: View {
             userInputIndex += 1
             if userInputIndex >= sequenceLength {
                 feedback = "Correct! You win!"
-                user.updateUserMoney(for: 100)
+                user.updateUserMoney(for: 30)
                 gamePhase = .finished
                 
             }
