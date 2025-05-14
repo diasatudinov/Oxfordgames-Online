@@ -3,7 +3,7 @@ import SwiftUI
 struct OxfordgamesSettingsView: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @ObservedObject var settingsVM: SettingsViewModelSG
+    @ObservedObject var settingsVM: OxfordgamesSettingsViewModel
     var body: some View {
         ZStack {
             
@@ -19,7 +19,7 @@ struct OxfordgamesSettingsView: View {
                         Image(.soundTextOxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 60:30)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 60:30)
                         
                         Button {
                             withAnimation {
@@ -30,7 +30,7 @@ struct OxfordgamesSettingsView: View {
                             Image(settingsVM.soundEnabled ? .onOxfordgames:.offOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 80:40)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 80:40)
                         }
                     }
                     
@@ -38,19 +38,19 @@ struct OxfordgamesSettingsView: View {
                         Image(.languageTextOxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 60:30)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 60:30)
                         
                         
                         Image(.enImageOxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 64:32)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 64:32)
                     }
                     
                 }
                 
                 
-            }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:366)
+            }.frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:366)
             
             VStack {
                 HStack {
@@ -62,11 +62,11 @@ struct OxfordgamesSettingsView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                        
-                        CoinBgSG()
+                        OxfordgamesCoinBg()
                     }.padding([.horizontal, .top])
                 }
                 Spacer()
@@ -84,5 +84,5 @@ struct OxfordgamesSettingsView: View {
 }
 
 #Preview {
-    OxfordgamesSettingsView(settingsVM: SettingsViewModelSG())
+    OxfordgamesSettingsView(settingsVM: OxfordgamesSettingsViewModel())
 }

@@ -16,7 +16,6 @@ class OxfordgamesMazeScene: SKScene {
 
     private let wallThicknessFactor: CGFloat = 0.4  
 
-    // MARK: - Lifecycle
     override func didMove(to view: SKView) {
         backgroundColor = .clear
         maze = generateMaze(rows: rows, cols: cols)

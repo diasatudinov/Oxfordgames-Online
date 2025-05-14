@@ -1,10 +1,3 @@
-//
-//  OxfordgamesMiniGamesView.swift
-//  Oxfordgames Online
-//
-//  Created by Dias Atudinov on 14.05.2025.
-//
-
 import SwiftUI
 
 struct OxfordgamesMiniGamesView: View {
@@ -25,11 +18,11 @@ struct OxfordgamesMiniGamesView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                         
-                        CoinBgSG()
+                        OxfordgamesCoinBg()
                     }.padding([.horizontal, .top])
                     
                 }
@@ -43,7 +36,7 @@ struct OxfordgamesMiniGamesView: View {
                         Image(.gameText1Oxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                           
                     }
                     
@@ -53,7 +46,7 @@ struct OxfordgamesMiniGamesView: View {
                         Image(.gameText2Oxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                           
                     }
                     
@@ -63,7 +56,7 @@ struct OxfordgamesMiniGamesView: View {
                         Image(.gameText3Oxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                           
                     }
                     
@@ -73,7 +66,7 @@ struct OxfordgamesMiniGamesView: View {
                         Image(.gameText4Oxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                           
                     }
                 }
@@ -91,17 +84,17 @@ struct OxfordgamesMiniGamesView: View {
         )
         .fullScreenCover(isPresented: $game1) {
             
-            NumberGuessGame()
+            OxfordgamesNumberGuessGame()
             
         }
         .fullScreenCover(isPresented: $game2) {
-            CoupleGameView()
+            OxfordgamesCoupleGameView()
         }
         .fullScreenCover(isPresented: $game3) {
-            MemorizationViewSG()
+            OxfordgamesMemorizationView()
         }
         .fullScreenCover(isPresented: $game4) {
-            SaracenMazeGameView()
+            OxfordgamesMazeGameView()
         }
     }
 }

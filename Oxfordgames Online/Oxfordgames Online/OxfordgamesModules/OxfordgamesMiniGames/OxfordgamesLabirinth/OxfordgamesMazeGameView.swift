@@ -4,8 +4,8 @@ import SpriteKit
 struct OxfordgamesMazeGameView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isWin = false
-    @State private var gameScene: SaracenMazeScene = {
-        let scene = SaracenMazeScene(size: UIScreen.main.bounds.size)
+    @State private var gameScene: OxfordgamesMazeScene = {
+        let scene = OxfordgamesMazeScene(size: UIScreen.main.bounds.size)
         scene.scaleMode = .resizeFill
         return scene
     }()
@@ -14,7 +14,7 @@ struct OxfordgamesMazeGameView: View {
     
     var body: some View {
         ZStack {
-            SaracenMazeViewContainer(scene: gameScene, isWin: $isWin)
+            OxfordgamesMazeViewContainer(scene: gameScene, isWin: $isWin)
                 
             
             VStack {
