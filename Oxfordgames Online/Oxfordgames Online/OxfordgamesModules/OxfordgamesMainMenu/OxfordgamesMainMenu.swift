@@ -7,9 +7,9 @@ struct OxfordgamesMainMenu: View {
     @State private var showMiniGames = false
     @State private var showSettings = false
     
-//    @StateObject var achievementVM = AchievementsViewModelSG()
-//    @StateObject var settingsVM = SettingsViewModelSG()
-//    @StateObject var shopVM = StoreViewModelSG()
+    @StateObject var achievementVM = AchievementsViewModelSG()
+    @StateObject var settingsVM = SettingsViewModelSG()
+    @StateObject var shopVM = StoreViewModelSG()
     
     var body: some View {
         
@@ -116,19 +116,19 @@ struct OxfordgamesMainMenu: View {
 //                        }
 //                    }
         .fullScreenCover(isPresented: $showGame) {
-//            ChooseLevelView(shopVM: shopVM, achievementVM: achievementVM)
+            ChooseLevelView(shopVM: shopVM)
         }
         .fullScreenCover(isPresented: $showMiniGames) {
-//            MiniGamesChooseView()
+            OxfordgamesMiniGamesView()
         }
         .fullScreenCover(isPresented: $showAchievement) {
-//            AchievementsViewSG(viewModel: achievementVM)
+            OxfordgamesAchievementsView(viewModel: achievementVM)
         }
         .fullScreenCover(isPresented: $showShop) {
-//            ShopViewSG(viewModel: shopVM)
+            OxfordgamesStoreView(viewModel: shopVM)
         }
         .fullScreenCover(isPresented: $showSettings) {
-//            SettingsViewSG(settingsVM: settingsVM)
+            OxfordgamesSettingsView(settingsVM: settingsVM)
         }
         
         

@@ -1,3 +1,11 @@
+//
+//  CoupleGameView.swift
+//  Oxfordgames Online
+//
+//  Created by Dias Atudinov on 14.05.2025.
+//
+
+
 import SwiftUI
 import AVFoundation
 
@@ -13,7 +21,7 @@ struct CoupleGameView: View {
     @State private var gameEnded: Bool = false
     @State private var isWin: Bool = false
     @State private var pauseShow: Bool = false
-    private let cardTypes = ["cardFace1SG", "cardFace2SG", "cardFace3SG", "cardFace4SG", "cardFace5SG", "cardFace6SG"]
+    private let cardTypes = ["cardFace1Oxfordgames", "cardFace2Oxfordgames", "cardFace3Oxfordgames", "cardFace4Oxfordgames", "cardFace5Oxfordgames", "cardFace6Oxfordgames"]
     private let gridSize = 4
     
     @State private var counter: Int = 0
@@ -25,39 +33,47 @@ struct CoupleGameView: View {
         ZStack {
             
                 VStack {
-                    HStack {
-                        Button {
-                            presentationMode.wrappedValue.dismiss()
+                    HStack(alignment: .top) {
+                        HStack {
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                                
+                            } label: {
+                                Image(.backIconOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                            }
                             
-                        } label: {
-                            Image(.homeIconSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 160:80)
+                            Button {
+                                setupGame()
+                                
+                            } label: {
+                                Image(.restartBtnOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                            }
                         }
-                        
                         Spacer()
-                    }
-                    
-                    VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -40:-20) {
-                        Image(.findCoupleText)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 240:120)
                         
-                        ZStack {
-                            Image(.coupleTimerBg)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:70)
-                            
-                            Text("\(timeLeft)")
-                                .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 40:20, weight: .bold))
-                                .foregroundStyle(.yellow)
+                        VStack(alignment: .trailing) {
+                            CoinBgSG()
+                            ZStack {
+                                Image(.coupleTimerBgOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                
+                                Text("00:\(timeLeft)")
+                                    .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 48:24, weight: .bold))
+                                    .foregroundStyle(.white)
+                            }
                         }
-                    }
+                    }.padding()
                     
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 20) {
+                    Spacer()
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 20) {
                         ForEach(cards) { card in
                             CardView(card: card)
                                 .onTapGesture {
@@ -69,7 +85,7 @@ struct CoupleGameView: View {
                         
                     }
                     .frame(width: SGDeviceManager.shared.deviceType == .pad ? 500:350)
-                   
+                    Spacer()
                 }
                 .onAppear {
                     setupGame()
@@ -78,44 +94,62 @@ struct CoupleGameView: View {
             if gameEnded {
                 if isWin {
                     ZStack {
-                        Image(.coupleGameBgSG)
+                        Image(.winBgOxfordgames)
                             .resizable()
-                        VStack(spacing: -40) {
-                            Image(.winTextSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
+                            .scaledToFit()
+                        
+                        VStack {
+                            
+                            Spacer()
                             
                             Button {
                                 setupGame()
                             } label: {
-                                Image(.nextButtonSG)
+                                Image(.retryBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
-                        }
-                    }
+                            
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Image(.menuBtnOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                            }
+                            
+                        }.padding(.bottom, SGDeviceManager.shared.deviceType == .pad ? 100 : 50)
+                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
                 } else {
                     ZStack {
-                        Image(.coupleGameBgSG)
+                        Image(.loseBgOxfordgames)
                             .resizable()
-                        VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                            Image(.loseTextSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 360:180)
+                            .scaledToFit()
+                        
+                        VStack {
+                            
                             
                             Button {
                                 setupGame()
                             } label: {
-                                Image(.tryAgainIconSG)
+                                Image(.retryBtnOxfordgames)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                            }
+                            
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Image(.menuBtnOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
                             }
                         }
-                    }
+                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
                 }
             }
            
@@ -131,11 +165,8 @@ struct CoupleGameView: View {
                 timer.upstream.connect().cancel()
             }
         }
-//        .onAppear {
-//            startTimer()
-//        }
         .background(
-            Image(.coupleGameBgSG)
+            Image(.appBgOxfordgames)
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .scaledToFill()
@@ -155,26 +186,20 @@ struct CoupleGameView: View {
     }
     
     private func setupGame() {
-        // Reset state
         selectedCards.removeAll()
         message = "Find all matching cards!"
         gameEnded = false
         timeLeft = 60
-        // Restart timer
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-        // Generate cards
         var gameCards = [Card]()
         
-        // Add 4 cards of each type (24 cards total for 6 types)
         for type in cardTypes {
             gameCards.append(Card(type: type))
             gameCards.append(Card(type: type))
         }
                 
-        // Shuffle cards
         gameCards.shuffle()
         
-        // Ensure exactly 25 cards
         cards = Array(gameCards.prefix(gridSize * gridSize))
     }
     
@@ -184,7 +209,6 @@ struct CoupleGameView: View {
               !cards[index].isMatched,
               selectedCards.count < 2 else { return }
         
-        // Flip card
         cards[index].isFaceUp = true
         selectedCards.append(cards[index])
         
@@ -213,7 +237,6 @@ struct CoupleGameView: View {
             isWin = false
         }
         
-        // Flip cards back over after a delay if they don't match
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             for card in selectedCards {
                 if let index = cards.firstIndex(where: { $0.id == card.id }) {
@@ -222,11 +245,10 @@ struct CoupleGameView: View {
             }
             selectedCards.removeAll()
             
-            // Check if all cards are matched
             if cards.allSatisfy({ $0.isMatched || $0.type == "cardSemaphore" }) {
                 message = "Game Over! You found all matches!"
                 gameEnded = true
-                user.updateUserMoney(for: 100)
+                user.updateUserMoney(for: 30)
             }
         }
     }
