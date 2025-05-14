@@ -29,7 +29,19 @@ struct NumberGuessGame: View {
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
+                        
+                        Button {
+                            
+                            resetGame()
+                        } label: {
+                            Image(.restartBtnOxfordgames)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                        }
                         Spacer()
+                        
+                        CoinBgSG()
                     }.padding([.horizontal, .top])
 
                     
@@ -56,7 +68,7 @@ struct NumberGuessGame: View {
                             }
                         }
                         .padding(.vertical)
-                    }
+                    }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
 
 
                     

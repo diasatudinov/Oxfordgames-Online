@@ -8,16 +8,16 @@ enum StoreSection: Codable, Hashable {
 class StoreViewModelSG: ObservableObject {
     @Published var shopTeamItems: [Item] = [
         
-        Item(name: "bgName1Oxfordgames", image: "gameBg1SG", icon: "backIcon1Oxfordgames", section: .backgrounds, price: 100),
-        Item(name: "bgName2Oxfordgames", image: "gameBg2SG", icon: "backIcon2Oxfordgames", section: .backgrounds, price: 100),
-        Item(name: "bgName3Oxfordgames", image: "gameBg3SG", icon: "backIcon3Oxfordgames", section: .backgrounds, price: 100),
-        Item(name: "bgName4Oxfordgames", image: "gameBg4SG", icon: "backIcon4Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName1Oxfordgames", image: "gameBg1Oxfordgames", icon: "backIcon1Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName2Oxfordgames", image: "gameBg2Oxfordgames", icon: "backIcon2Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName3Oxfordgames", image: "gameBg3Oxfordgames", icon: "backIcon3Oxfordgames", section: .backgrounds, price: 100),
+        Item(name: "bgName4Oxfordgames", image: "gameBg4Oxfordgames", icon: "backIcon4Oxfordgames", section: .backgrounds, price: 100),
         
         
-        Item(name: "itemName1", image: "imageSkin1SG", icon: "itemIcon1", section: .skin, price: 100),
-        Item(name: "itemName2", image: "imageSkin2SG", icon: "itemIcon2", section: .skin, price: 100),
-        Item(name: "itemName3", image: "imageSkin3SG", icon: "itemIcon3", section: .skin, price: 100),
-        Item(name: "itemName4", image: "imageSkin4SG", icon: "itemIcon4", section: .skin, price: 100),
+        Item(name: "itemName1", image: "imageSkin1Oxfordgames", icon: "itemIcon1", section: .skin, price: 100),
+        Item(name: "itemName2", image: "imageSkin2Oxfordgames", icon: "itemIcon2", section: .skin, price: 100),
+        Item(name: "itemName3", image: "imageSkin3Oxfordgames", icon: "itemIcon3", section: .skin, price: 100),
+        Item(name: "itemName4", image: "imageSkin4Oxfordgames", icon: "itemIcon4", section: .skin, price: 100),
          
     ]
     
@@ -48,8 +48,8 @@ class StoreViewModelSG: ObservableObject {
         loadBoughtItem()
     }
     
-    private let userDefaultsBgKey = "bgKeyOxfordgames"
-    private let userDefaultsPersonKey = "skinKeyOxfordgames"
+    private let userDefaultsBgKey = "bgKeyOxfordgamess"
+    private let userDefaultsPersonKey = "skinKeyOxfordgamess"
     private let userDefaultsBoughtKey = "boughtItemsOxfordgames"
 
     
