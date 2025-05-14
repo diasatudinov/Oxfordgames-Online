@@ -7,9 +7,9 @@ struct OxfordgamesMainMenu: View {
     @State private var showMiniGames = false
     @State private var showSettings = false
     
-    @StateObject var achievementVM = AchievementsViewModelSG()
-    @StateObject var settingsVM = SettingsViewModelSG()
-    @StateObject var shopVM = StoreViewModelSG()
+    @StateObject var achievementVM = OxfordgamesAchievementsViewModel()
+    @StateObject var settingsVM = OxfordgamesSettingsViewModel()
+    @StateObject var shopVM = OxfordgamesStoreViewModel()
     
     var body: some View {
         
@@ -25,12 +25,12 @@ struct OxfordgamesMainMenu: View {
                         Image(.settingsIconOxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                            .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                     }
                     
                     Spacer()
                     
-                    CoinBgSG()
+                    OxfordgamesCoinBg()
                     
                     
                 }
@@ -38,7 +38,7 @@ struct OxfordgamesMainMenu: View {
                 Image(.logoOxfordgames)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 400:224)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:224)
             
                 
                 Button {
@@ -47,7 +47,7 @@ struct OxfordgamesMainMenu: View {
                     Image(.playIconOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:90)
+                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 140:90)
                 }
                 
                 Button {
@@ -56,7 +56,7 @@ struct OxfordgamesMainMenu: View {
                     Image(.miniGamesIconOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:90)
+                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 140:90)
                 }
                 
                 Button {
@@ -65,7 +65,7 @@ struct OxfordgamesMainMenu: View {
                     Image(.achievementsIconOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:90)
+                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 140:90)
                 }
                 
                 Button {
@@ -74,7 +74,7 @@ struct OxfordgamesMainMenu: View {
                     Image(.storeIconOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:90)
+                        .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 140:90)
                 }
                 
                 Spacer()
@@ -103,20 +103,8 @@ struct OxfordgamesMainMenu: View {
                     .scaledToFill()
             }
         )
-//                    .onAppear {
-//                        if settingsVM.musicEnabled {
-//                            GEMusicManager.shared.playBackgroundMusic()
-//                        }
-//                    }
-//                    .onChange(of: settingsVM.musicEnabled) { enabled in
-//                        if enabled {
-//                            GEMusicManager.shared.playBackgroundMusic()
-//                        } else {
-//                            GEMusicManager.shared.stopBackgroundMusic()
-//                        }
-//                    }
         .fullScreenCover(isPresented: $showGame) {
-            ChooseLevelView(shopVM: shopVM)
+            OxfordgamesChooseLevelView(shopVM: shopVM)
         }
         .fullScreenCover(isPresented: $showMiniGames) {
             OxfordgamesMiniGamesView()

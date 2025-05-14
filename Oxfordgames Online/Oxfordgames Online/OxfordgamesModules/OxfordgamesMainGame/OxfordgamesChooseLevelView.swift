@@ -2,7 +2,7 @@ import SwiftUI
 
 struct OxfordgamesChooseLevelView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var shopVM: StoreViewModelSG
+    @ObservedObject var shopVM: OxfordgamesStoreViewModel
 
     @State var openGame = false
     @State var selectedIndex = 0
@@ -68,7 +68,7 @@ struct OxfordgamesChooseLevelView: View {
             }
         )
         .fullScreenCover(isPresented: $openGame) {
-            GameView(shopVM: shopVM, level: selectedIndex)
+            OxfordgamesGameView(shopVM: shopVM, level: selectedIndex)
         }
     }
     
@@ -101,5 +101,5 @@ struct OxfordgamesChooseLevelView: View {
 }
 
 #Preview {
-    OxfordgamesChooseLevelView(shopVM: StoreViewModelSG())
+    OxfordgamesChooseLevelView(shopVM: OxfordgamesStoreViewModel())
 }

@@ -9,7 +9,7 @@ struct OxfordgamesRoot: View {
     var body: some View {
         ZStack {
             if verse == 1 {
-                WVWrap(urlString: Links.winStarData)
+                OxfordgamesWVWrap(urlString: OxfordgamesLinks.winStarData)
             } else {
                 VStack {
                     if isLoading {
@@ -37,9 +37,9 @@ struct OxfordgamesRoot: View {
     }
     
     func updateIfNeeded() {
-        if Links.shared.finalURL == nil {
+        if OxfordgamesLinks.shared.finalURL == nil {
             Task {
-                if await !Resolver.checking() {
+                if await !OxfordgamesResolver.checking() {
                     verse = 1
                     toUp = false
                     isLoading = false

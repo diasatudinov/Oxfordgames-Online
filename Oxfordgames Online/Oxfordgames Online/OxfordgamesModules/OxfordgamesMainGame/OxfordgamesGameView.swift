@@ -4,12 +4,12 @@ import SpriteKit
 struct OxfordgamesGameView: View {
     @Environment(\.presentationMode) var presentationMode
    
-    @State var gameScene: GameScene = {
-        let scene = GameScene(size: UIScreen.main.bounds.size)
+    @State var gameScene: OxfordgamesGameScene = {
+        let scene = OxfordgamesGameScene(size: UIScreen.main.bounds.size)
         scene.scaleMode = .resizeFill
         return scene
     }()
-    @ObservedObject var shopVM: StoreViewModelSG
+    @ObservedObject var shopVM: OxfordgamesStoreViewModel
     @State private var powerUse = false
     @State private var isWin = false
     @State private var score = 0
@@ -17,7 +17,7 @@ struct OxfordgamesGameView: View {
     var imagesForView: [String] = ["viewImage1Oxfordgames","viewImage2Oxfordgames", ""]
     var body: some View {
         ZStack {
-            SpriteViewContainer(scene: gameScene, isWin: $isWin, score: $score, level: level)
+            OxfordgamesSpriteViewContainer(scene: gameScene, isWin: $isWin, score: $score, level: level)
                 .ignoresSafeArea()
             
             VStack(spacing: OxfordgamesDeviceManager.shared.deviceType == .pad ? 200:100) {
@@ -161,5 +161,5 @@ struct OxfordgamesGameView: View {
 }
 
 #Preview {
-    OxfordgamesGameView(shopVM: StoreViewModelSG(), level: 0)
+    OxfordgamesGameView(shopVM: OxfordgamesStoreViewModel(), level: 0)
 }

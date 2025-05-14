@@ -1,7 +1,6 @@
 import SpriteKit
 import SwiftUI
 
-// Тип движения корабля
 enum OxfordgamesMovementType: Int {
     case straight = 0
     case turnLeft = 1
@@ -17,7 +16,7 @@ struct OxfordgamesShipConfig {
 }
 
 class OxfordgamesGameScene: SKScene, SKPhysicsContactDelegate {
-    var shopVM = StoreViewModelSG()
+    var shopVM = OxfordgamesStoreViewModel()
     var levelIndex: Int?
     private var lastTappedShip: SKSpriteNode?
     private var shipArrows: [SKSpriteNode: SKSpriteNode] = [:]
@@ -308,5 +307,5 @@ class OxfordgamesGameScene: SKScene, SKPhysicsContactDelegate {
 }
 
 #Preview {
-    OxfordgamesGameView(shopVM: StoreViewModelSG(), level: 0)
+    OxfordgamesGameView(shopVM: OxfordgamesStoreViewModel(), level: 0)
 }
