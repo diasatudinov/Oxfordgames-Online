@@ -1,17 +1,13 @@
-//
-//  Oxfordgames_OnlineApp.swift
-//  Oxfordgames Online
-//
-//  Created by Dias Atudinov on 13.05.2025.
-//
-
 import SwiftUI
 
 @main
 struct Oxfordgames_OnlineApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
-            OxfordgamesMainMenu()
+            OxfordgamesRoot()
+                .preferredColorScheme(.light)
         }
     }
 }

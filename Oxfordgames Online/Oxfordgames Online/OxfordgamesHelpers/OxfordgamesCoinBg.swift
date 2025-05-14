@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OxfordgamesCoinBg: View {
-    @StateObject var user = SGUser.shared
+    @StateObject var user = OxfordgamesUser.shared
     var body: some View {
         ZStack {
             Image(.coinsViewBgOxfordgames)
@@ -9,13 +9,13 @@ struct OxfordgamesCoinBg: View {
                 .scaledToFit()
             
             Text("\(user.money)")
-                .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 48:24, weight: .black))
+                .font(.system(size: OxfordgamesDeviceManager.shared.deviceType == .pad ? 48:24, weight: .black))
                 .foregroundStyle(.white)
                 .textCase(.uppercase)
             
             
             
-        }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+        }.frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
         
     }
 }

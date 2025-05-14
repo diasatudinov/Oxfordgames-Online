@@ -2,7 +2,7 @@ import SwiftUI
 
 struct OxfordgamesAchievementsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: AchievementsViewModelSG
+    @ObservedObject var viewModel: OxfordgamesAchievementsViewModel
 
     @State var index = 0
     
@@ -19,18 +19,18 @@ struct OxfordgamesAchievementsView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                        
-                        CoinBgSG()
+                        OxfordgamesCoinBg()
                     }.padding([.horizontal, .top])
                 }
                 
                 Image(.achievementsTextOxfordgames)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                 
                 ZStack {
                     
@@ -45,7 +45,7 @@ struct OxfordgamesAchievementsView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                             
                             
                         }
@@ -57,12 +57,12 @@ struct OxfordgamesAchievementsView: View {
                             Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 100:50)
                                 .scaleEffect(x: -1)
                             
                         }
-                    }.frame(width: SGDeviceManager.shared.deviceType == .pad ? 700:350)
-                        .offset(y: SGDeviceManager.shared.deviceType == .pad ? -200:-100)
+                    }.frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 700:350)
+                        .offset(y: OxfordgamesDeviceManager.shared.deviceType == .pad ? -200:-100)
                 }
                 Spacer()
             }
@@ -76,12 +76,12 @@ struct OxfordgamesAchievementsView: View {
         )
     }
     
-    @ViewBuilder func achievementItem(item: AchievementSG) -> some View {
+    @ViewBuilder func achievementItem(item: OxfordgamesAchievement) -> some View {
         VStack {
             Image(item.title)
                 .resizable()
                 .scaledToFit()
-                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
             
             ZStack {
                 Image(item.image)
@@ -93,23 +93,23 @@ struct OxfordgamesAchievementsView: View {
                         .foregroundStyle(.black.opacity(0.9))
                 }
                     
-            }.frame(width: SGDeviceManager.shared.deviceType == .pad ? 400:200, height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+            }.frame(width: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:200, height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 400:200)
             
             Image(item.subtitle)
                 .resizable()
                 .scaledToFit()
-                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 120:60)
             Spacer()
             if item.isAchieved {
                 Image(.receivedTextOxfordgames)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
             } else {
                 Image(.receivedTextOxfordgames)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                    .frame(height: OxfordgamesDeviceManager.shared.deviceType == .pad ? 180:90)
                     .opacity(0)
             }
         }
@@ -129,5 +129,5 @@ struct OxfordgamesAchievementsView: View {
 }
 
 #Preview {
-    OxfordgamesAchievementsView(viewModel: AchievementsViewModelSG())
+    OxfordgamesAchievementsView(viewModel: OxfordgamesAchievementsViewModel())
 }
