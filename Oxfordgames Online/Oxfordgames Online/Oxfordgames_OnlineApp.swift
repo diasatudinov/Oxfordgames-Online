@@ -11,7 +11,7 @@ import SwiftUI
 struct Oxfordgames_OnlineApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OxfordgamesMainMenu()
         }
     }
 }

@@ -190,13 +190,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let arrowTextureName: String
             switch shipConfig.movement {
             case .straight:
-                arrowTextureName = "arrow"
+                arrowTextureName = "arrowOxfordgames"
             case .turnLeft:
-                arrowTextureName = "arrowLeft"
+                arrowTextureName = "arrowLeftOxfordgames"
             case .turnRight:
-                arrowTextureName = "arrowRight"
+                arrowTextureName = "arrowRightOxfordgames"
             case .uTurn:
-                arrowTextureName = "arrowBack"
+                arrowTextureName = "arrowBackOxfordgames"
             }
             
             let arrow = SKSpriteNode(imageNamed: arrowTextureName)
@@ -308,5 +308,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 }
 
 #Preview {
-    GameView(shopVM: StoreViewModelSG(), achievementVM: AchievementsViewModelSG(), level: 0)
+    GameView(shopVM: StoreViewModelSG(), level: 0)
 }

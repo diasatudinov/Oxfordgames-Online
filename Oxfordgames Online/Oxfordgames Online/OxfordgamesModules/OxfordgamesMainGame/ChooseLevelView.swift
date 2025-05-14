@@ -3,7 +3,6 @@ import SwiftUI
 struct ChooseLevelView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var shopVM: StoreViewModelSG
-    @ObservedObject var achievementVM: AchievementsViewModelSG
 
     @State var openGame = false
     @State var selectedIndex = 0
@@ -16,54 +15,91 @@ struct ChooseLevelView: View {
                             presentationMode.wrappedValue.dismiss()
                             
                         } label: {
-                            Image(.backIconSG)
+                            Image(.backIconOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                         CoinBgSG()
                     }.padding([.horizontal, .top])
                 }
-                ScrollView {
-                    HStack {
-                        Spacer()
-                    }
-                    ForEach(Range(0...9)) { index in
-                        ZStack {
-                            Image(.planetLevel1)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: SGDeviceManager.shared.deviceType == .pad ? 200:100,height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
-                            
-                            Text("\(index + 1)")
-                                .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 80:40, weight: .bold))
-                                .foregroundStyle(.black)
-                        }.offset(x: CGFloat(Int.random(in: SGDeviceManager.shared.deviceType == .pad ? Range(-130...130):Range(-65...65))))
-                            .onTapGesture {
-                                selectedIndex = index
-                                DispatchQueue.main.async {
-                                    openGame = true
-                                }
+                
+                Image(.levelSelectTextOxfordgames)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                
+                ZStack {
+                    Image(.zikzakOxfordgames)
+                        .resizable()
+                        .scaledToFit()
+                    
+                    VStack(spacing: -4) {
+                        ForEach(Range(0...9)) { index in
+                            ZStack {
+                                Image(.levelNumBgOxfordgames)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:65)
                                 
-                            }
+                                Text("\(index + 1)")
+                                    .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 80:40, weight: .bold))
+                                    .foregroundStyle(.white)
+                            }.offset(x: putXLevels(for: index))
+                                .onTapGesture {
+                                    selectedIndex = index
+                                    DispatchQueue.main.async {
+                                        openGame = true
+                                    }
+                                    
+                                }
+                        }
                     }
                 }
+                
             }
         }.background(
             ZStack {
-                Image(.shopBgSG)
+                Image(.appBgOxfordgames)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .scaledToFill()
             }
         )
         .fullScreenCover(isPresented: $openGame) {
-            GameView(shopVM: shopVM, achievementVM: achievementVM, level: selectedIndex)
+            GameView(shopVM: shopVM, level: selectedIndex)
+        }
+    }
+    
+    func putXLevels(for index: Int) -> CGFloat {
+        switch index {
+        case 0:
+            return -80
+        case 1:
+            return 80
+        case 2:
+            return -80
+        case 3:
+            return 80
+        case 4:
+            return -80
+        case 5:
+            return 80
+        case 6:
+            return -80
+        case 7:
+            return 80
+        case 8:
+            return -80
+        case 9:
+            return 80
+        default:
+            return 0
         }
     }
 }
 
 #Preview {
-    ChooseLevelView(shopVM: StoreViewModelSG(), achievementVM: AchievementsViewModelSG())
+    ChooseLevelView(shopVM: StoreViewModelSG())
 }
