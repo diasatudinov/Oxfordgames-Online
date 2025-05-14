@@ -1,3 +1,11 @@
+//
+//  SaracenMazeGameView.swift
+//  Oxfordgames Online
+//
+//  Created by Dias Atudinov on 14.05.2025.
+//
+
+
 import SwiftUI
 import SpriteKit
 
@@ -20,26 +28,28 @@ struct SaracenMazeGameView: View {
             VStack {
                 HStack {
                     HStack(alignment: .top) {
+                        Button {
+                            presentationMode.wrappedValue.dismiss()
+                            
+                        } label: {
+                            Image(.backIconOxfordgames)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                        }
                         
                         Button {
                             gameScene.restartGame()
                             isWin = false
                         } label: {
-                            Image(.restartIconSaracen)
+                            Image(.restartBtnOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 130:65)
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
-                        Button {
-                            presentationMode.wrappedValue.dismiss()
-                            
-                        } label: {
-                            Image(.homeIconSaracen)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 130:65)
-                        }
+                        
+                        CoinBgSG()
 
                     }.padding([.horizontal, .top])
                 }
@@ -51,19 +61,19 @@ struct SaracenMazeGameView: View {
                         gameScene.moveUp()
                         
                     } label: {
-                        Image(.controlArrowSaracen)
+                        Image(.controlArrowOxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 100:50)
+                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                     }
-                    HStack(spacing: SaracenDeviceInfo.shared.deviceType == .pad ? 100:50) {
+                    HStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 100:50) {
                         Button {
                             gameScene.moveLeft()
                         } label: {
-                            Image(.controlArrowSaracen)
+                            Image(.controlArrowOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 100:50)
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                                 .rotationEffect(.degrees(90))
                                 .scaleEffect(x: -1, y: 1)
                         }
@@ -71,10 +81,10 @@ struct SaracenMazeGameView: View {
                         Button {
                             gameScene.moveRight()
                         } label: {
-                            Image(.controlArrowSaracen)
+                            Image(.controlArrowOxfordgames)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 100:50)
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                                 .rotationEffect(.degrees(90))
                         }
                     }
@@ -82,10 +92,10 @@ struct SaracenMazeGameView: View {
                     Button {
                         gameScene.moveDown()
                     } label: {
-                        Image(.controlArrowSaracen)
+                        Image(.controlArrowOxfordgames)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 100:50)
+                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                             .scaleEffect(x: 1, y: -1)
                     }
                 }
@@ -93,30 +103,41 @@ struct SaracenMazeGameView: View {
             }
             
             if isWin {
-                Color.black.opacity(0.5)
-                    .ignoresSafeArea()
-                ZStack(alignment: .bottom) {
-                    Image(.coupleGameWinBgSaracen)
+                ZStack {
+                    Image(.winBgOxfordgames)
                         .resizable()
                         .scaledToFit()
-                        
-                    Button {
-                        
-                        gameScene.restartGame()
-                        isWin = false
-                    } label: {
-                        Image(.restartIconSaracen)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: SaracenDeviceInfo.shared.deviceType == .pad ? 130:65)
-                    }.offset(y: 20)
                     
-                }.frame(height:  SaracenDeviceInfo.shared.deviceType == .pad ? 878:439)
+                    VStack {
+                        
+                        Spacer()
+                        
+                        Button {
+                            gameScene.restartGame()
+                            isWin = false
+                        } label: {
+                            Image(.retryBtnOxfordgames)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                        }
+                        
+                        Button {
+                            presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Image(.menuBtnOxfordgames)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+                        }
+                        
+                    }.padding(.bottom, SGDeviceManager.shared.deviceType == .pad ? 100 : 50)
+                }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 700:350)
             }
             
         }.background(
             ZStack {
-                Image(.miniGameBgSaracen)
+                Image(.appBgOxfordgames)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .scaledToFill()

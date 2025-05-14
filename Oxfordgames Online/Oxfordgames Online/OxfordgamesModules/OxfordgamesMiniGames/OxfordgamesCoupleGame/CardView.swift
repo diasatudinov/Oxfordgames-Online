@@ -1,3 +1,11 @@
+//
+//  CardView.swift
+//  Oxfordgames Online
+//
+//  Created by Dias Atudinov on 14.05.2025.
+//
+
+
 import SwiftUI
 
 struct CardView: View {
@@ -11,7 +19,7 @@ struct CardView: View {
                     .scaledToFit()
                     .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
             } else {
-                Image(.cardBackSG)
+                Image(.cardBackOxfordgames)
                     .resizable()
                     .scaledToFit()
                     .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
